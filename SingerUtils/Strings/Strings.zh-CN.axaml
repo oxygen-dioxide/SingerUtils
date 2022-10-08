@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <system:String x:Key="cleanup.filetypes">要删除的文件类型（gitignore格式）</system:String>
+  <system:String x:Key="cleanup.run">运行</system:String>
+  <system:String x:Key="main.cleanup">清理</system:String>
+  <system:String x:Key="main.merge">合并</system:String>
+  <system:String x:Key="main.pack">打包</system:String>
+  <system:String x:Key="main.singerpath">歌手路径</system:String>
+  <system:String x:Key="main.singerpath.find">浏览</system:String>
+  <system:String x:Key="pack.useflac">将wav文件转为flac格式</system:String>
+  <system:String x:Key="pack.ignorefiletypes">忽略的文件类型（gitignore格式）</system:String>
+  <system:String x:Key="pack.run">运行</system:String>
+</ResourceDictionary>

@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:SingerUtils.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SingerUtils.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="OpenUTAU Singer Utils">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition/>
+      <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <TextBlock Grid.Column="0" Text="{DynamicResource main.singerpath}" VerticalAlignment="Center"/>
+    <TextBox Grid.Column="1" Text="{Binding SingerPath}"/>
+    <Button Grid.Column="2" Content="{DynamicResource main.singerpath.find}" VerticalAlignment="Center" Click="OnFindSingerPath"/>
+    <TabControl Grid.Row="1" Grid.ColumnSpan="3">
+      <TabItem Header="{DynamicResource main.cleanup}" VerticalContentAlignment="Center">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <TextBlock Grid.Row="0" Text="{DynamicResource cleanup.filetypes}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+          <TextBox Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap"/>
+          <Button Grid.Row="2" Content="{DynamicResource cleanup.run}" VerticalAlignment="Center"/>
+        </Grid>
+      </TabItem>
+      <TabItem Header="{DynamicResource main.pack}" VerticalContentAlignment="Center">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <CheckBox Grid.Row="0" Content="{DynamicResource pack.useflac}"/>
+          <TextBlock Grid.Row="1" Text="{DynamicResource pack.ignorefiletypes}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+          <TextBox Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap"/>
+          <Button Grid.Row="3" Content="{DynamicResource pack.run}" VerticalAlignment="Center"/>
+        </Grid>
+      </TabItem>
+      <TabItem Header="{DynamicResource main.merge}" VerticalContentAlignment="Center">
+        
+      </TabItem>
+    </TabControl>  
+  </Grid>
+</Window>
