@@ -53,7 +53,7 @@
           <CheckBox Grid.Row="0" Content="{DynamicResource pack.useflac}"/>
           <TextBlock Grid.Row="1" Text="{DynamicResource pack.ignorefiletypes}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
           <TextBox Grid.Row="2" Text="{Binding IgnoreFileTypes}" AcceptsReturn="True" TextWrapping="Wrap"/>
-          <Button Grid.Row="3" Content="{DynamicResource pack.run}" VerticalAlignment="Center"/>
+          <Button Grid.Row="3" Content="{DynamicResource pack.run}" VerticalAlignment="Center" Click="OnRunPack"/>
         </Grid>
       </TabItem>
       <TabItem Header="{DynamicResource main.merge}" VerticalContentAlignment="Center">

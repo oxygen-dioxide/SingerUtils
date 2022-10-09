@@ -68,5 +68,14 @@ namespace SingerUtils.Views
             });
             vm.CleanUpProgressText = "Cleanup Succeed";
         }
+
+        public void OnRunPack(object sender, RoutedEventArgs e)
+        {
+            var vm = (MainWindowViewModel)DataContext;
+            //write voicebank.gitignore
+            string IgnoreFileTypes = vm.IgnoreFileTypes;
+            string gitignorePath = System.IO.Path.Combine(PathManager.Inst.RootPath, "voicebank.gitignore");
+            File.WriteAllText(gitignorePath, vm.IgnoreFileTypes);
+        }
     }
 }
