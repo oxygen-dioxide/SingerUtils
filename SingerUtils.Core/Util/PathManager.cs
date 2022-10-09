@@ -75,8 +75,6 @@ namespace SingerUtils.Core
         public bool HomePathIsAscii { get; private set; }
         public string PrefsFilePath => Path.Combine(DataPath, "prefs.json");
 
-
-
         readonly static string[] sizes = { "B", "KB", "MB", "GB", "TB", "PB", "EB" };
 
     }

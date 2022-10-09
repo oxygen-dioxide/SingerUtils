@@ -32,10 +32,14 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
           </Grid.RowDefinitions>
           <TextBlock Grid.Row="0" Text="{DynamicResource cleanup.filetypes}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-          <TextBox Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap"/>
-          <Button Grid.Row="2" Content="{DynamicResource cleanup.run}" VerticalAlignment="Center"/>
+          <TextBox Grid.Row="1" Text="{Binding IgnoreFileTypes}" AcceptsReturn="True" TextWrapping="Wrap"/>
+          <TextBlock Grid.Row="2" Text="{Binding CleanUpProgressText}"/>
+          <ProgressBar Grid.Row="3" Minimum="0" Maximum="{Binding CleanUpProgressMaximum}" Value="{Binding CleanUpProgressValue}"/>
+          <Button Grid.Row="4" Content="{DynamicResource cleanup.run}" VerticalAlignment="Center" Click="OnRunCleanup"/>
         </Grid>
       </TabItem>
       <TabItem Header="{DynamicResource main.pack}" VerticalContentAlignment="Center">
@@ -48,7 +52,7 @@
           </Grid.RowDefinitions>
           <CheckBox Grid.Row="0" Content="{DynamicResource pack.useflac}"/>
           <TextBlock Grid.Row="1" Text="{DynamicResource pack.ignorefiletypes}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-          <TextBox Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap"/>
+          <TextBox Grid.Row="2" Text="{Binding IgnoreFileTypes}" AcceptsReturn="True" TextWrapping="Wrap"/>
           <Button Grid.Row="3" Content="{DynamicResource pack.run}" VerticalAlignment="Center"/>
         </Grid>
       </TabItem>
