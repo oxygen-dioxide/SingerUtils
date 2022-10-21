@@ -12,7 +12,7 @@ Many UTAU engines write intermediate files into your voicebanks, such as .frq an
 You can choose which file formats to delete.
 
 ### Voicebank Pack (work in progress)
-using "Voicebank Pack", you can pack your voicebank into an archive encoded in utf-8. This archive won't garble in any system locale.
+using "Voicebank Pack", you can pack your voicebank into an archive encoded in utf-8. This archive won't garble in various system locales.
 
 Like "Voicebank Clearup", you may want to exclude intermediate files from your archive. You can choose which file formats to exclude.
 
