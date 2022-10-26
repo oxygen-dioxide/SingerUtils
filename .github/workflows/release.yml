@@ -2,7 +2,7 @@ on:
   push
 
 jobs:
-  create_installer:
+  release:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -14,7 +14,7 @@ jobs:
 
     - name: Get Versioning Data
       id: versioning
-      uses: Soumeh/Auto-Versioning@main
+      uses: oxygen-dioxide/Auto-Versioning@main
       with:
         change-map: '{"removed": 3, "renamed": 3, "added": 3, "modified": 3}'
 
