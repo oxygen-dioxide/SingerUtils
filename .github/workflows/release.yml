@@ -30,7 +30,7 @@ jobs:
       run: dotnet publish SingerUtils -c Release -r win-x64 --self-contained true -o bin/win-x64
 
     - name: compress x86
-      run: 7z a SingerUtils-x64-${{ steps.versioning.outputs.tag }}.zip bin/win-x86/
+      run: 7z a SingerUtils-x86-${{ steps.versioning.outputs.tag }}.zip bin/win-x86/
 
     - name: compress x64
       run: 7z a SingerUtils-x64-${{ steps.versioning.outputs.tag }}.zip bin/win-x64/
