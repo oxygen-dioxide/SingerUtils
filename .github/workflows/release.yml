@@ -1,0 +1,58 @@
+on:
+  push
+
+jobs:
+  create_installer:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ 'windows-latest' ]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Get Versioning Data
+      id: versioning
+      uses: Soumeh/Auto-Versioning@main
+      with:
+        change-map: '{"removed": 3, "renamed": 3, "added": 3, "modified": 3}'
+
+    - name: restore x86
+      run: dotnet restore SingerUtils -r win-x86
+
+    - name: restore x64
+      run: dotnet restore SingerUtils -r win-x64
+
+    - name: build x86
+      run: dotnet publish SingerUtils -c Release -r win-x86 --self-contained true -o bin/win-x86
+
+    - name: build x64
+      run: dotnet publish SingerUtils -c Release -r win-x64 --self-contained true -o bin/win-x64
+
+    - name: compress x86
+      run: 7z a SingerUtils-x64-${{ steps.versioning.outputs.tag }}.zip bin/win-x86/
+
+    - name: compress x64
+      run: 7z a SingerUtils-x64-${{ steps.versioning.outputs.tag }}.zip bin/win-x64/
+
+    - name: Upload artifact x64
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: SingerUtils-x64-${{ steps.versioning.outputs.tag }}.zip
+        path: SingerUtils-x64-${{ steps.versioning.outputs.tag }}.zip
+
+    - name: Upload artifact x86
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: SingerUtils-x86-${{ steps.versioning.outputs.tag }}.zip
+        path: SingerUtils-x86-${{ steps.versioning.outputs.tag }}.zip
+
+    - name: Create release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.versioning.outputs.tag }}
+        files: |
+          SingerUtils-x64-${{ steps.versioning.outputs.tag }}.zip
+          SingerUtils-x86-${{ steps.versioning.outputs.tag }}.zip
+          
