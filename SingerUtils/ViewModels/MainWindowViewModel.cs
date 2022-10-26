@@ -20,6 +20,7 @@ namespace SingerUtils.ViewModels
         [Reactive] public string PackProgressText { get; set; }
         [Reactive] public int PackProgressMaximum { get; set; }
         [Reactive] public int PackProgressValue { get; set; }
+        public string AppVersion => $"SingerUtils v{System.Reflection.Assembly.GetEntryAssembly()?.GetName().Version}";
 
         public MainWindowViewModel()
         {

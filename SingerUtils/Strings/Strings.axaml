@@ -2,8 +2,10 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+  <system:String x:Key="about.github">Github</system:String>
   <system:String x:Key="cleanup.filetypes">File types to be deleted (in .gitignore format)</system:String>
   <system:String x:Key="cleanup.run">Run</system:String>
+  <system:String x:Key="main.about">About</system:String>
   <system:String x:Key="main.cleanup">Cleanup</system:String>
   <system:String x:Key="main.merge">Merge</system:String>
   <system:String x:Key="main.pack">Pack</system:String>

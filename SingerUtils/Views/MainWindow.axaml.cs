@@ -10,6 +10,7 @@ using Ignore;
 using System.Threading.Tasks;
 using System.Threading;
 using System.IO.Compression;
+using System;
 
 namespace SingerUtils.Views
 {
@@ -50,7 +51,7 @@ namespace SingerUtils.Views
             string singerPath = vm.SingerPath;
             List<string> fileList = Directory.EnumerateFiles(singerPath, "*.*", SearchOption.AllDirectories).ToList();
             List<string> deleteList = fileList.FindAll(x => ignore.IsIgnored(System.IO.Path.GetRelativePath(singerPath, x)));
-            
+
             //delete files
             int index = 0;
             int fileCount = deleteList.Count();
@@ -81,7 +82,7 @@ namespace SingerUtils.Views
             File.WriteAllText(gitignorePath, vm.IgnoreFileTypes);
             //ask where to save the .zip file
             var dialog = new SaveFileDialog();
-            dialog.InitialFileName = System.IO.Path.GetFileName(vm.SingerPath)+".zip";
+            dialog.InitialFileName = System.IO.Path.GetFileName(vm.SingerPath) + ".zip";
             dialog.Filters = new List<FileDialogFilter>
             {
                 new FileDialogFilter
@@ -106,7 +107,7 @@ namespace SingerUtils.Views
             int index = 0;
             int fileCount = packList.Count();
             vm.PackProgressMaximum = fileCount;
-            using ZipArchive zipFile = new ZipArchive(File.Create(zipPath),ZipArchiveMode.Create);
+            using ZipArchive zipFile = new ZipArchive(File.Create(zipPath), ZipArchiveMode.Create);
             {
                 await Task.Run(() =>
                 {
@@ -120,11 +121,23 @@ namespace SingerUtils.Views
                             fileCount,
                             reFilePath);
                         vm.PackProgressValue = index;
-                        zipFile.CreateEntryFromFile(absFilePath,reFilePath);
+                        zipFile.CreateEntryFromFile(absFilePath, reFilePath);
                     }
                 });
             }
             vm.PackProgressText = "Pack Succeed";
+        }
+
+        public void OnVisitGithub(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                OS.OpenWeb("https://github.com/oxygen-dioxide/SingerUtils");
+            }
+            catch
+            {
+
+            }
         }
     }
 }

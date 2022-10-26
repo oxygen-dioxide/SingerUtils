@@ -61,6 +61,17 @@
       <TabItem Header="{DynamicResource main.merge}" VerticalContentAlignment="Center">
         
       </TabItem>
+      <TabItem Header="{DynamicResource main.about}" VerticalContentAlignment="Center">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+          </Grid.RowDefinitions>
+          <TextBlock Grid.Row="0" Text="{Binding AppVersion}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+          <Button Grid.Row="4" Content="{DynamicResource about.github}" VerticalAlignment="Center" Click="OnVisitGithub"/>
+        </Grid>
+      </TabItem>
     </TabControl>  
   </Grid>
 </Window>
