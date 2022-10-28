@@ -6,7 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SingerUtils.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="OpenUTAU Singer Utils">
+        Title="SingerUtils">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
@@ -58,9 +58,6 @@
           <Button Grid.Row="4" Content="{DynamicResource pack.run}" VerticalAlignment="Center" Click="OnRunPack"/>
         </Grid>
       </TabItem>
-      <TabItem Header="{DynamicResource main.merge}" VerticalContentAlignment="Center">
-        
-      </TabItem>
       <TabItem Header="{DynamicResource main.about}" VerticalContentAlignment="Center">
         <Grid>
           <Grid.RowDefinitions>
@@ -69,7 +66,7 @@
             <RowDefinition/>
           </Grid.RowDefinitions>
           <TextBlock Grid.Row="0" Text="{Binding AppVersion}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-          <Button Grid.Row="4" Content="{DynamicResource about.github}" VerticalAlignment="Center" Click="OnVisitGithub"/>
+          <Button Grid.Row="1" Content="{DynamicResource about.github}" VerticalAlignment="Center" Click="OnVisitGithub"/>
         </Grid>
       </TabItem>
     </TabControl>  
