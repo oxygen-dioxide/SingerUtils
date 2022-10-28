@@ -9,8 +9,8 @@ SingerUtils is developed with the same technologies used by [OpenUTAU](https://g
 [Download from GitHub](https://github.com/oxygen-dioxide/SingerUtils/releases)
 
 ## Features
-### Voicebank Clearup
-Many UTAU engines write intermediate files into your voicebanks, such as .frq and .llsm files. These files will occupy your disk space, and you probably won't use them again. Using "Voicebank Clearup", you can easily delete these files.
+### Voicebank Cleanup
+Many UTAU engines write intermediate files into your voicebanks, such as .frq and .llsm files. These files will occupy your disk space, and you probably won't use them again. Using "Voicebank Cleanup", you can easily delete these files.
 
 You can choose which file formats to delete.
 
