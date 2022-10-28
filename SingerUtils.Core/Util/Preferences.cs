@@ -19,7 +19,7 @@ namespace SingerUtils.Core.Util
             Load();
         }
 
-        public static void Save()
+        /*public static void Save()
         {
             try
             {
@@ -31,12 +31,11 @@ namespace SingerUtils.Core.Util
             {
                 Log.Error(e, "Failed to save prefs.");
             }
-        }
+        }*/
 
         public static void Reset()
         {
             Default = new SerializablePreferences();
-            Save();
         }
 
         private static void Load()

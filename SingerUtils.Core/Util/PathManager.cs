@@ -17,6 +17,7 @@ namespace SingerUtils.Core
             RootPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             if (OS.IsMacOS())
             {
+                //TODO
                 string userHome = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                 DataPath = Path.Combine(userHome, "Library", "OpenUtau");
                 CachePath = Path.Combine(userHome, "Library", "Caches", "OpenUtau");
@@ -34,6 +35,7 @@ namespace SingerUtils.Core
             }
             else if (OS.IsLinux())
             {
+                //TODO
                 string userHome = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                 string dataHome = Environment.GetEnvironmentVariable("XDG_DATA_HOME");
                 if (string.IsNullOrEmpty(dataHome))
@@ -51,7 +53,22 @@ namespace SingerUtils.Core
             }
             else
             {
-                DataPath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+                var args = Environment.GetCommandLineArgs();
+                if (args.Count() > 1 && File.Exists(Path.Join(args[1],"../../prefs.json"))) //(File.Exists("../../prefs.json"))
+                {
+                    //If Launched as OpenUTAU Plugin, DataPath is where OpenUTAU is located
+                    DataPath = Path.GetFullPath(Path.Join(args[1], "../.."));
+                }
+                else if(File.Exists(Path.Join(Process.GetCurrentProcess().MainModule.FileName,"../../prefs.json")))
+                {
+                    //If installed as OpenUTAU Plugin but not launched in OpenUTAU, DataPath is where OpenUTAU is located
+                    DataPath = Path.GetFullPath(Path.Join(Process.GetCurrentProcess().MainModule.FileName, "../.."));
+                }
+                else
+                {
+                    //If not installed as OpenUTAU Plugin, DataPath is where SingerUtils is located
+                    DataPath = Path.GetFullPath(".");
+                }
                 CachePath = Path.Combine(DataPath, "Cache");
                 HomePathIsAscii = true;
                 var etor = StringInfo.GetTextElementEnumerator(DataPath);

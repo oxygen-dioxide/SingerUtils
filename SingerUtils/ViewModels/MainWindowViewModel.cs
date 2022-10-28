@@ -41,7 +41,7 @@ namespace SingerUtils.ViewModels
             }
 
             var args = Environment.GetCommandLineArgs();
-            if (args.Count() >= 1 && File.Exists(args[1]))
+            if (args.Count() > 1 && File.Exists(args[1]))
             {
                 if (File.Exists(args[1]))
                 {
