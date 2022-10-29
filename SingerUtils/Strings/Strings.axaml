@@ -4,6 +4,7 @@
 
   <system:String x:Key="about.github">Github</system:String>
   <system:String x:Key="cleanup.filetypes">File types to be deleted (in .gitignore format)</system:String>
+  <system:String x:Key="cleanup.preview">Preview</system:String>
   <system:String x:Key="cleanup.run">Run</system:String>
   <system:String x:Key="main.about">About</system:String>
   <system:String x:Key="main.cleanup">Cleanup</system:String>
@@ -13,5 +14,6 @@
   <system:String x:Key="main.singerpath.find">Find</system:String>
   <system:String x:Key="pack.useflac">Convert .wav files to .flac</system:String>
   <system:String x:Key="pack.ignorefiletypes">Ignored file types (in .gitignore format)</system:String>
+  <system:String x:Key="pack.preview">Preview</system:String>
   <system:String x:Key="pack.run">Run</system:String>
 </ResourceDictionary>

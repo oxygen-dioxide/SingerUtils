@@ -26,6 +26,7 @@
     <TextBox Grid.Column="1" Text="{Binding SingerPath}"/>
     <Button Grid.Column="2" Content="{DynamicResource main.singerpath.find}" VerticalAlignment="Center" Click="OnFindSingerPath"/>
     <TabControl Grid.Row="1" Grid.ColumnSpan="3">
+      <!-- Cleanup Page-->
       <TabItem Header="{DynamicResource main.cleanup}" VerticalContentAlignment="Center">
         <Grid>
           <Grid.RowDefinitions>
@@ -39,9 +40,14 @@
           <TextBox Grid.Row="1" Text="{Binding IgnoreFileTypes}" AcceptsReturn="True" TextWrapping="Wrap"/>
           <TextBlock Grid.Row="2" Text="{Binding CleanUpProgressText}"/>
           <ProgressBar Grid.Row="3" Minimum="0" Maximum="{Binding CleanUpProgressMaximum}" Value="{Binding CleanUpProgressValue}"/>
-          <Button Grid.Row="4" Content="{DynamicResource cleanup.run}" VerticalAlignment="Center" Click="OnRunCleanup"/>
+          <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <Button Content="{DynamicResource cleanup.preview}" VerticalAlignment="Center" Click="OnPreviewCleanup"/>
+            <Button Content="{DynamicResource cleanup.run}" VerticalAlignment="Center" Click="OnRunCleanup"/>
+          </StackPanel>
         </Grid>
       </TabItem>
+      
+      <!-- Pack Page-->
       <TabItem Header="{DynamicResource main.pack}" VerticalContentAlignment="Center">
         <Grid>
           <Grid.RowDefinitions>
@@ -55,9 +61,14 @@
           <TextBox Grid.Row="1" Text="{Binding IgnoreFileTypes}" AcceptsReturn="True" TextWrapping="Wrap"/>
           <TextBlock Grid.Row="2" Text="{Binding PackProgressText}"/>
           <ProgressBar Grid.Row="3" Minimum="0" Maximum="{Binding PackProgressMaximum}" Value="{Binding PackProgressValue}"/>
-          <Button Grid.Row="4" Content="{DynamicResource pack.run}" VerticalAlignment="Center" Click="OnRunPack"/>
+          <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <Button Content="{DynamicResource pack.preview}" VerticalAlignment="Center" Click="OnPreviewPack"/>
+            <Button Content="{DynamicResource pack.run}" VerticalAlignment="Center" Click="OnRunPack"/>
+          </StackPanel>
         </Grid>
       </TabItem>
+      
+      <!-- About Page-->
       <TabItem Header="{DynamicResource main.about}" VerticalContentAlignment="Center">
         <Grid>
           <Grid.RowDefinitions>

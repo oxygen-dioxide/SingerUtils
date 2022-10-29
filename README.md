@@ -17,7 +17,7 @@ You can choose which file formats to delete.
 ### Voicebank Pack
 using "Voicebank Pack", you can pack your voicebank into an archive encoded in utf-8. This archive won't garble in various system locales.
 
-Like "Voicebank Clearup", you may want to exclude intermediate files from your archive. You can choose which file formats to exclude.
+Like "Voicebank Cleanup", you may want to exclude intermediate files from your archive. You can choose which file formats to exclude.
 
 ### Voicebank Merge (work in progress)
 OpenUTAU natively supports multi-color voicebanks. Using "Voicebank Merge", you can merge another voicebank into your currently using voicebank as a voice color.
